@@ -1,7 +1,7 @@
-// const checkBtn = document.getElementById("check-btn");
-// const clearBtn = document.getElementById("clear-btn");
-// const userInput = document.getElementById("user-input");
-// const resultDiv = document.getElementById("results-div");
+const checkBtn = document.getElementById("check-btn");
+const clearBtn = document.getElementById("clear-btn");
+const userInput = document.getElementById("user-input");
+const resultDiv = document.getElementById("results-div");
 
 
 const checkInput = () => {
@@ -22,7 +22,6 @@ const displayFail = () => {
 }
 
 const validateNumber = string => {
-    //const normRegex = /^(1\s)?(\d{3})(-|\s)(\d{3})(-|\s)(\d{4})$/;
     const normRegex = /^1?\s?(\d{3})(-|\s)?(\d{3})(-|\s)?(\d{4})$/;
     const bracketRegex = /^1?\s?\((\d{3})\)(-|\s)?(\d{3})(-|\s)?(\d{4})$/;
     return string.match(normRegex) || string.match(/^\d{10}$/) || string.match(bracketRegex);
@@ -32,13 +31,11 @@ const clearResults = () => {
     resultDiv.innerHTML = "";
 }
 
-// clearBtn.addEventListener("click", clearResults);
-// checkBtn.addEventListener("click", checkInput);
-// userInput.addEventListener("keydown", e =>
-//     {if (e.key == "Enter") {
-//         console.log("Key button pressed!");
-//         checkInput();
-//     }}
-// );
-
-console.log(validateNumber("1 555)555-5555"));
+clearBtn.addEventListener("click", clearResults);
+checkBtn.addEventListener("click", checkInput);
+userInput.addEventListener("keydown", e =>
+    {if (e.key == "Enter") {
+        console.log("Key button pressed!");
+        checkInput();
+    }}
+);
